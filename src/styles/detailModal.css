@@ -1,0 +1,81 @@
+/*========MODAL===========*/
+.modal-backdrop {
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+.detail-container {
+  position: fixed;
+  z-index: 2;
+  align-items: center;
+  width: 750px;
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  /* margin-left: 30%;
+  margin-bottom: 20%; */
+  background-image: linear-gradient(rgb(246, 225, 130), rgb(124, 234, 124), rgb(174, 174, 245));
+  box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+  border: 2px solid var(--primary);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.875rem;
+  transition: all 0.5s ease;
+}
+
+.detail-container .detail-contant {
+  max-width: 100%;
+}
+
+.detail-container .detail-contant .close {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: none;
+}
+
+.detail-container .detail-contant .detail-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-container .detail-contant .detail-info .img-card img {
+  width: 250px;
+  height: 250px;
+}
+
+.detail-container .detail-contant .detail-info .product-detail .modal-title {
+  color: var(--primary);
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.detail-container .detail-contant .detail-info .product-detail .modal-price {
+  color: var(--primary);
+  font-weight: 300;
+}
+
+.detail-container .detail-contant .detail-info .product-detail .modal-desc {
+  font-weight: 300;
+  line-height: 2;
+}
+
+.detail-container .detail-contant .detail-info .product-detail button {
+  color: var(--primary);
+  font-weight: 300;
+  margin-top: 1.25rem;
+  padding: 0.625rem 1.875rem;
+  border: none;
+  outline: none;
+  border: 1px solid var(--primary);
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
