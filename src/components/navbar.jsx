@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { BsCart4 } from "react-icons/bs";
 
 const Navbar = (prop) => {
   const navigate = useNavigate();
@@ -26,10 +27,10 @@ const Navbar = (prop) => {
           {!isHome && <li>
             <button onClick={() => setIsHome(true)}>Products</button>
           </li>}
-          <li style={{ marginTop: '' }}>
+          <li>
             <button onClick={() => setIsHome(false)}
               style={{ display: 'flex' }}>
-              Cart
+              <BsCart4 style={{fontSize: '25px'}}/>
               <p className='cart-size'>{cartItem.length}</p>
             </button>
           </li>
