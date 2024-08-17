@@ -1,0 +1,53 @@
+{
+  "name": "main",
+  "type": "folder",
+  "children": [
+    {
+      "name": "node modules",
+      "type": "file",
+      "children": []
+    },
+    {
+      "name": "public",
+      "type": "folder",
+      "children": [
+        {
+          "name": "index.html",
+          "type": "file"
+        },
+        {
+          "name": "styles.css",
+          "type": "file"
+        },
+        {
+          "name": "scripts.js",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "src",
+      "type": "folder",
+      "children": [
+        {
+          "name": "app",
+          "type": "folder",
+          "children": [
+            {
+              "name": "layout",
+              "type": "file"
+            },
+            {
+              "name": "components",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "robot.js",
+      "type": "file"
+    }
+  ]
+}

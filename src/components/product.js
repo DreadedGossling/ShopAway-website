@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import Alert from '@mui/material/Alert';
 import DetailModal from './detailModal';
 
@@ -7,12 +6,12 @@ const Product = (prop) => {
   const { product, cartItem, setCartItem, setAlert } = { ...prop }
   const item = { ...product, quantity: 1 }
 
-  const [detail, setDetail] = useState([]);
+  const [detail, setDetail] = useState({});
   const [showModal, setShowModal] = useState(false);
 
   const showDetails = (item) => {
     console.log("Product", item)
-    setDetail([{ ...item }]);
+    setDetail(item);
     setShowModal(true);
   };
 
@@ -40,12 +39,6 @@ const Product = (prop) => {
 
   return (
     <>
-      {showModal ?
-        <DetailModal
-          detail={detail}
-          setShowModal={setShowModal}
-        />
-        : null}
       <div>
         <li key={item.title} className='product-card'>
 
@@ -63,14 +56,16 @@ const Product = (prop) => {
             </h3>
             <h5 className='product-description'>
               {item.description.substr(0, 150)}...
-              {/* <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'black', fontSize: '15px' }}>
-              Read More
-            </Link> */}
               <button
                 onClick={() => showDetails(item)}
-                style={{ backgroundColor: 'inherit', border:'none', color: 'green', cursor:'pointer' }}>
+                style={{ backgroundColor: 'inherit', border: 'none', color: 'green', cursor: 'pointer' }}>
                 Read More
               </button>
+              {showModal && (
+                <DetailModal
+                  onClose={() => setShowModal(false)}
+                  detail={detail} />
+              )}
             </h5>
           </div>
 

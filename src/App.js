@@ -11,6 +11,7 @@ import StarRating from './pages/practice/starRating'
 import Faq from './pages/practice/faq'
 import SearchBar from './pages/practice/searchBar'
 import { Navigate, Outlet } from 'react-router-dom';
+import FolderTest from './pages/practice/folderTest'
 
 const App = () => {
 
@@ -70,6 +71,10 @@ const App = () => {
           <Route
             path="/searchbar"
             element={<SearchBar />}
+          ></Route>
+          <Route
+            path="/folder"
+            element={<FolderTest />}
           ></Route>
 
         </Routes>

@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsCart4 } from "react-icons/bs";
+import { IoMdMenu } from "react-icons/io";
 
 const Navbar = (prop) => {
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ const Navbar = (prop) => {
             <img src="/shop@way.png" alt="shop@way" height={80} />
           </Link>
         </div>
+        {/* small screen */}
+        <button className='menu-button'>
+          <IoMdMenu />
+        </button>
+        {/* large screen */}
         <ul className="navbar-links">
           {!isHome && <li>
             <button onClick={() => setIsHome(true)}>Products</button>
@@ -30,7 +36,7 @@ const Navbar = (prop) => {
           <li>
             <button onClick={() => setIsHome(false)}
               style={{ display: 'flex' }}>
-              <BsCart4 style={{fontSize: '25px'}}/>
+              <BsCart4 style={{ fontSize: '25px' }} />
               <p className='cart-size'>{cartItem.length}</p>
             </button>
           </li>

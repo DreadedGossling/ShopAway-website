@@ -3,20 +3,23 @@ import React, { useState, useEffect } from 'react'
 const SearchBar = () => {
   const [search, setSearch] = useState('');
   const [result, setResult] = useState();
+  const [data, setData] = useState([])
 
-  const data = [
-    { 'name': 'ravi', 'email': 'ravi@gmail.com' },
-    { 'name': 'navi', 'email': 'navi@gmail.com' }
-  ]
+  const fetchData = async () => {
+    const response = await fetch('https://dummyjson.com/products');
+    const productList = await response.json()
+    setData(productList.products)
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const handlechange = (e) => {
-    console.log("object", e.target.value)
     if (!e.target.value) {
-      console.log("no")
-      setResult(null)
+      setResult()
     }
     setSearch(e.target.value)
-    const find = data.filter((item) => item.name.includes(search))
+    const find = data.filter((item) => item.title.toLowerCase().includes(search))
     setResult(find)
   }
 
@@ -29,20 +32,16 @@ const SearchBar = () => {
         placeholder="search here..."
         onChange={(e) => handlechange(e)}
         value={search} />
-      {result ?
+      {result &&
         <ul style={{ margin: '15px' }}>
           {result.map((item, i) => {
             return (
               <li key={i} style={{ display: 'flex' }}>
-                <p style={{ marginRight: '15px' }}>Name: <span>{item.name}</span></p>
-                <p>Email: <span>{item.email}</span></p>
+                <p style={{ marginRight: '15px' }}><span>{item.title}</span></p>
               </li>
             )
           })}
         </ul>
-        :
-        <div style={{ margin: '15px', color: 'red' }}>
-          no result found</div>
       }
     </>
   )

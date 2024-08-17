@@ -22,6 +22,10 @@
   animation: mymove 3s linear infinite;
 }
 
+.menu-button {
+  display: none;
+}
+
 .navbar-links {
   list-style: none;
   display: flex;
@@ -73,9 +77,15 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .navbar-links {
-    flex-direction: column;
-    gap: 10px;
+    display: none;
+  }
+  .menu-button {
+    display: block;
+    background-color: inherit;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
   }
 }
