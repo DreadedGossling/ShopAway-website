@@ -10,7 +10,6 @@ const Product = (prop) => {
   const [showModal, setShowModal] = useState(false);
 
   const showDetails = (item) => {
-    console.log("Product", item)
     setDetail(item);
     setShowModal(true);
   };
@@ -35,12 +34,13 @@ const Product = (prop) => {
     }, 5000)
     setCartItem([...cartItem, item])
     localStorage.setItem("cartItem", JSON.stringify([...cartItem, item]))
+    setShowModal(false)
   }
 
   return (
     <>
       <div>
-        <li key={item.title} className='product-card'>
+        <li key={item.title} className='product-card' onClick={() => showDetails(item)}>
 
           <div style={{ fontFamily: 'cursive' }}>
             <div className='image-container'>
@@ -61,22 +61,19 @@ const Product = (prop) => {
                 style={{ backgroundColor: 'inherit', border: 'none', color: 'green', cursor: 'pointer' }}>
                 Read More
               </button>
-              {showModal && (
-                <DetailModal
-                  onClose={() => setShowModal(false)}
-                  detail={detail} />
-              )}
             </h5>
           </div>
 
-          <button
-            className={isAlready ? 'disabled-add-to-cart-button' : 'add-to-cart-button'}
-            onClick={() => handleBuy(item)}>
-            Buy
-          </button>
-
         </li>
       </div>
+
+      {showModal && (
+        <DetailModal
+          onClose={() => setShowModal(false)}
+          handleBuy={handleBuy}
+          detail={detail}
+          cartItem={cartItem} />
+      )}
     </>
   )
 }
