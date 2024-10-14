@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import HomePage from './pages/homePage'
+import Home from './pages/dashboard'
 import InfiniteScroll from './pages/practice/infiniteScroll'
 import Product from './pages/product'
 import Login from './pages/login'
@@ -12,13 +12,15 @@ import Faq from './pages/practice/faq'
 import SearchBar from './pages/practice/searchBar'
 import { Navigate, Outlet } from 'react-router-dom';
 import FolderTest from './pages/practice/folderTest'
+import AlphabetsQuery from './pages/practice/alphabetsQuery'
+
 
 const App = () => {
 
   const ProtectedRoute = () => {
     const isLoggedIn = JSON.parse(localStorage.getItem('login credentials'));
     return (
-      isLoggedIn !== null ? <Outlet /> : <Navigate to={'/login'} />
+      isLoggedIn ? <Outlet /> : <Navigate to={'/login'} />
     )
   }
 
@@ -30,7 +32,7 @@ const App = () => {
           <Route element={<ProtectedRoute />}>
             <Route
               path="/"
-              element={<HomePage />}
+              element={<Home />}
             ></Route>
             <Route
               path="/product/:id"
@@ -52,6 +54,10 @@ const App = () => {
             element={<PageNotFound />}
           ></Route>
           {/* practice routes */}
+          <Route
+            path="/alphabets"
+            element={<AlphabetsQuery />}
+          ></Route>
           <Route
             path="/faq"
             element={<Faq />}

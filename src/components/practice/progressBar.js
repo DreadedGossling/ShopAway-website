@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import '../../styles/p.css'
 
 const Prog = () => {
   const [bar, setBar] = useState(0);

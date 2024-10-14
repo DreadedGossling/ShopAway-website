@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../../styles/p.css'
 
 const Stars = ({ stars }) => {
   const [starValue, setStarValue] = useState(0)

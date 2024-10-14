@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import '../../styles/p.css'
 
 const InfiniteScroll = () => {
   const [products, setProducts] = useState([])

@@ -40,28 +40,34 @@ const Product = (prop) => {
   return (
     <>
       <div>
-        <li key={item.title} className='product-card' onClick={() => showDetails(item)}>
+        <li key={item.title}
+          className='bg-gradient-to-b from-[#DEF4F9] to-[#F7EEF7]  border-1 border-gray-100 rounded-md shadow-md shadow-slate-400
+        p-5 w-72 h-[460px] m-10 hover:from-[#F7EEF7] hover:to-[#DEF4F9] hover:shadow-xl hover:shadow-sky-400  ease-in-out duration-150'>
 
           <div style={{ fontFamily: 'cursive' }}>
-            <div className='image-container'>
+            <div className='mb-2 flex justify-center'>
               <img src={item.thumbnail}
                 alt={item.thumbnail} width={175}
-                className='product-image'
+                className='rounded-full'
                 loading='lazy' />
             </div>
-            <hr />
-            <h4 style={{ color: 'rgb(54, 54, 98)' }}>{item.title}</h4>
-            <h3 style={{ color: 'rgb(54, 54, 98)' }}>
-              <span style={{ fontSize: '16px' }}>Rs. </span>{Math.floor(item.price * 80)} /-
+            <hr className='bg-slate-200' />
+            <h2 className='text-center my-1 text-lime-700 font-extrabold text-lg'>{item.title}</h2>
+            <h3 className='text-violet-700 font-mono font-bold'>
+              Rs.{Math.floor(item.price * 80)} /-
             </h3>
-            <h5 className='product-description'>
-              {item.description.substr(0, 150)}...
+            <h5 className='text-justify text-sm mt-2 h-16'>
+              {item.description.substr(0, 100)}...
+
+            </h5>
+            <div className='flex justify-center'>
               <button
                 onClick={() => showDetails(item)}
-                style={{ backgroundColor: 'inherit', border: 'none', color: 'green', cursor: 'pointer' }}>
-                Read More
+                className='bg-green-500 text-white w-20 h-10 rounded-md cursor-pointer font-medium mt-4 hover:bg-green-600'
+              >
+                View
               </button>
-            </h5>
+            </div>
           </div>
 
         </li>
@@ -72,7 +78,7 @@ const Product = (prop) => {
           onClose={() => setShowModal(false)}
           handleBuy={handleBuy}
           detail={detail}
-          cartItem={cartItem} />
+        />
       )}
     </>
   )

@@ -6,9 +6,14 @@ const SearchBar = () => {
   const [data, setData] = useState([])
 
   const fetchData = async () => {
-    const response = await fetch('https://dummyjson.com/products');
-    const productList = await response.json()
-    setData(productList.products)
+    try {
+      const response = await fetch('https://dummyjson.com/products');
+      const productList = await response.json()
+      setData(productList.products)
+    } catch (error) {
+      console.log("error", error)
+    }
+
   }
   useEffect(() => {
     fetchData()

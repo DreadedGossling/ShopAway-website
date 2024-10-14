@@ -2,7 +2,6 @@ import React, { createContext, useEffect, useState } from 'react'
 import ProductComp from '../components/product';
 import Navbar from '../components/navbar';
 import Cart from '../components/cart';
-import '../styles/product.css'
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -37,7 +36,12 @@ const HomePage = () => {
 
   return (
     <>
-      <Navbar isHome={isHome} setIsHome={setIsHome} cartItem={cartItem} alert={alert} />
+      <Navbar
+        alert={alert}
+        isHome={isHome}
+        setIsHome={setIsHome}
+        cartItem={cartItem}
+      />
 
       {loading ?
         <div className="loading-container">
@@ -51,10 +55,11 @@ const HomePage = () => {
           {isHome ?
             <div>
               {products &&
-                <div className='product-list-page'>
+                <div className=' max-w-[100%] mx-20 mt-36 mb-8 p-2 border-slate-400 border-1 shadow-md rounded-lg shadow-black bg-[#f9f9f9]'>
+                  <h1 className='text-center text-2xl font-serif font-semibold text-emerald-800 border-t-2 border-b-2 border-slate-300 rounded-lg p-1.5 bg-gradient-to-b from-[#DEF4F9] to-[#F7EEF7]'>Products</h1>
 
-                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3px' }}>
-                    <ul className='product-list'>
+                  <div className='flex justify-center mt-2' >
+                    <ul className='flex flex-wrap justify-center p-4'>
                       {products && products.slice(page * 10 - 10, page * 10).map((product, i) => {
                         return (
                           <ProductComp
@@ -69,21 +74,24 @@ const HomePage = () => {
                       })}
                     </ul>
                   </div>
-                  <div className="pagination">
+                  <div className="p-3 m-4 flex justify-center">
                     <span onClick={() => selectPageHandler(page - 1)}
-                      style={{ visibility: page == 1 ? 'hidden' : '' }}>◀</span>
+                      className="px-5 py-4 cursor-pointer border-black border-2"
+                      style={{ visibility: page === 1 ? 'hidden' : '' }}>◀</span>
                     {
                       [...Array(products.length / 10)].map((_, i) => {
                         return <span
                           key={i}
-                          className={page === i + 1 ? "pagination-selected" : ""}
+                          style={{ backgroundColor: page === i + 1 ? 'rgb(208, 244, 251)' : '' }}
+                          className="px-5 py-4 cursor-pointer border-black border-2"
                           onClick={() => selectPageHandler(i + 1)}>
                           {i + 1}
                         </span>
                       })
                     }
                     <span onClick={() => selectPageHandler(page + 1)}
-                      style={{ visibility: page == products.length / 10 ? 'hidden' : '' }}>▶</span>
+                      className="px-5 py-4 cursor-pointer border-black border-2"
+                      style={{ visibility: page === products.length / 10 ? 'hidden' : '' }}>▶</span>
                   </div >
                 </div>
               }
