@@ -23,7 +23,7 @@ const SignupForm = () => {
     if (isLoggedIn) {
       navigate('/')
     }
-  }, [])
+  }, [navigate])
 
   const handleChange = (e) => {
     const { name, value } = e.target;

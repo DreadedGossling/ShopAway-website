@@ -22,7 +22,7 @@ const HomePage = () => {
 
     const cartProduct = JSON.parse(localStorage.getItem(userLoggedIn.email))
     setCartItem(cartProduct)
-  })
+  }, [userLoggedIn.email])
 
   const selectPageHandler = (i) => {
     if (i >= 1 && i <= products.length / 10 && i !== page)
