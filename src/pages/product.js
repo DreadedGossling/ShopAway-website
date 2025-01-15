@@ -14,7 +14,7 @@ const Product = () => {
 
   useEffect(() => {
     getCardData()
-  }, [])
+  })
 
 
   return (

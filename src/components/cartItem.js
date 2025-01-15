@@ -21,7 +21,7 @@ const CartItem = ({ cartItem, removeFromCart, handleQuantity }) => {
             <div className='flex space-x-4'>
               <div className='mt-2'>
                 <button
-                  style={{ pointerEvents: item.quantity == 1 ? 'none' : '' }}
+                  style={{ pointerEvents: item.quantity === 1 ? 'none' : '' }}
                   onClick={() => handleQuantity(item, -1)}
                   className='text-white px-2 h-6 bg-gray-400 hover:cursor-pointer hover:bg-gray-500'
                 >-</button>
