@@ -5,6 +5,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { IoWarningOutline } from "react-icons/io5";
 
 const Login = () => {
+  const userLoggedIn = JSON.parse(localStorage.getItem('login credentials'));
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -16,9 +17,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(localStorage.getItem('login credentials'))
-    console.log("logged", loggedInUser)
-    if (loggedInUser) {
+    if (userLoggedIn) {
       navigate('/')
     }
   })

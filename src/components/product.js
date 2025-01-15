@@ -3,9 +3,8 @@ import Alert from '@mui/material/Alert';
 import DetailModal from './detailModal';
 
 const Product = (prop) => {
-  const { product, cartItem, setCartItem, setAlert } = { ...prop }
+  const { product, cartItem, setCartItem, setAlert, userData } = { ...prop }
   const item = { ...product, quantity: 1 }
-
   const [detail, setDetail] = useState({});
   const [showModal, setShowModal] = useState(false);
 
@@ -36,7 +35,7 @@ const Product = (prop) => {
 
     const updatedCart = [...(cartItem || []), item];
     setCartItem(updatedCart);
-    localStorage.setItem("cartItem", JSON.stringify(updatedCart));
+    localStorage.setItem(userData.email, JSON.stringify(updatedCart));
     setShowModal(false);
   }
 

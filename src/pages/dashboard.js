@@ -4,6 +4,7 @@ import Navbar from '../components/navbar';
 import Cart from '../components/cart';
 
 const HomePage = () => {
+  const userLoggedIn = JSON.parse(localStorage.getItem('login credentials'));
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [isHome, setIsHome] = useState(true)
@@ -18,14 +19,9 @@ const HomePage = () => {
         setProducts(data.products)
         setLoading(false);
       });
-    // checking login or not
-    const data = JSON.parse(localStorage.getItem('login credentials'))
-    console.log("data", data)
-  }, [])
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("cartItem"))
-    setCartItem(data)
+    const cartProduct = JSON.parse(localStorage.getItem(userLoggedIn.email))
+    setCartItem(cartProduct)
   }, [])
 
   const selectPageHandler = (i) => {
@@ -62,6 +58,7 @@ const HomePage = () => {
                       {products && products.slice(page * 10 - 10, page * 10).map((product, i) => {
                         return (
                           <ProductComp
+                            userData={userLoggedIn}
                             product={product}
                             key={i}
                             cartItem={cartItem}
