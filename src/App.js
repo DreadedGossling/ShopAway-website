@@ -6,12 +6,6 @@ import Product from './pages/product'
 import Login from './pages/login'
 import Register from './pages/register'
 import PageNotFound from './pages/pageNotFound'
-import FolderTest from './pages/practice/folderTest'
-import AlphabetsQuery from './pages/practice/alphabetsQuery'
-import FilterProduct from './pages/practice/filterProduct'
-import Dropdown from './pages/practice/dropdown';
-import ListNewItem from './pages/practice/listNewItem';
-import CloudTest from './pages/practice/cloudTest';
 
 const App = () => {
 
@@ -56,34 +50,6 @@ const App = () => {
             path="*"
             element={<PageNotFound />}
           ></Route>
-
-          {/* practice routes */}
-
-          <Route
-            path="/alphabets"
-            element={<AlphabetsQuery />}
-          ></Route>
-          <Route
-            path="/folder"
-            element={<FolderTest />}
-          ></Route>
-          <Route
-            path="/filterProduct"
-            element={<FilterProduct />}
-          ></Route>
-          <Route
-            path="/dropdown"
-            element={<Dropdown />}
-          ></Route>
-          <Route
-            path="/listItem"
-            element={<ListNewItem />}
-          ></Route>
-          <Route
-            path="/cloudTest"
-            element={<CloudTest />}
-          ></Route>
-
         </Routes>
       </Router>
     </>
