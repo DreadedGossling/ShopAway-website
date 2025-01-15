@@ -5,7 +5,6 @@ import { BsCart4 } from "react-icons/bs";
 const Navbar = (prop) => {
   const navigate = useNavigate();
   const { setIsHome, isHome, cartItem, alert } = { ...prop }
-
   const loggedInUser = JSON.parse(localStorage.getItem('login credentials'))
 
   const logout = () => {

@@ -4,7 +4,7 @@ const CartItem = ({ cartItem, removeFromCart, handleQuantity }) => {
   return (
     <>
       <ul>
-        {cartItem.map((item) => (
+        {cartItem && cartItem.map((item) => (
           <li key={item.id}
             className='flex justify-between items-center p-5 border-b-2 border-[#ddd]'>
             <img src={item.thumbnail} alt={item.name}

@@ -93,7 +93,11 @@ const HomePage = () => {
               }
             </div >
             :
-            <Cart cartItem={cartItem} setCartItem={setCartItem} setAlert={setAlert} />
+            <Cart
+              userData={userLoggedIn}
+              cartItem={cartItem}
+              setCartItem={setCartItem}
+              setAlert={setAlert} />
           }
         </div>
       }

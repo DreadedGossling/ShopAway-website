@@ -2,10 +2,11 @@ import React from 'react'
 import CartItem from './cartItem'
 
 const Cart = (prop) => {
-  const { cartItem, setCartItem, setAlert } = { ...prop }
+  const { cartItem, setCartItem, setAlert, userData } = { ...prop }
 
   const removeFromCart = (productId) => {
     const newCart = cartItem.filter((item) => item.id !== productId)
+
     setAlert(
       <div className='bg-green-500 text-white p-3 mt-1 w-fill'>Item removed Successfully</div>
     )
@@ -13,7 +14,8 @@ const Cart = (prop) => {
       setAlert(null)
     }, 5000)
     setCartItem(newCart);
-    localStorage.setItem("cartItem", JSON.stringify(newCart));
+
+    localStorage.setItem(userData.email, JSON.stringify(newCart));
   };
 
   const subtotal = () => {
