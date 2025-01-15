@@ -2,15 +2,10 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navigate, Outlet } from 'react-router-dom';
 import Home from './pages/dashboard'
-import InfiniteScroll from './pages/practice/infiniteScroll'
 import Product from './pages/product'
 import Login from './pages/login'
 import Register from './pages/register'
 import PageNotFound from './pages/pageNotFound'
-import ProgressBar from './pages/practice/progressBar'
-import StarRating from './pages/practice/starRating'
-import Faq from './pages/practice/faq'
-import SearchBar from './pages/practice/searchBar'
 import FolderTest from './pages/practice/folderTest'
 import AlphabetsQuery from './pages/practice/alphabetsQuery'
 import FilterProduct from './pages/practice/filterProduct'
@@ -32,6 +27,7 @@ const App = () => {
       <Router>
         <Routes>
           {/* protected routes */}
+
           <Route element={<ProtectedRoute />}>
             <Route
               path="/"
@@ -42,7 +38,9 @@ const App = () => {
               element={<Product />}
             ></Route>
           </Route>
+
           {/* login routes */}
+
           <Route
             path="/login"
             element={<Login />}
@@ -51,35 +49,19 @@ const App = () => {
             path="/register"
             element={<Register />}
           ></Route>
+
           {/* error routes */}
+
           <Route
             path="*"
             element={<PageNotFound />}
           ></Route>
+
           {/* practice routes */}
+
           <Route
             path="/alphabets"
             element={<AlphabetsQuery />}
-          ></Route>
-          <Route
-            path="/faq"
-            element={<Faq />}
-          ></Route>
-          <Route
-            path="/infiniteScroll"
-            element={<InfiniteScroll />}
-          ></Route>
-          <Route
-            path="/progressBar"
-            element={<ProgressBar />}
-          ></Route>
-          <Route
-            path="/starRating"
-            element={<StarRating />}
-          ></Route>
-          <Route
-            path="/searchbar"
-            element={<SearchBar />}
           ></Route>
           <Route
             path="/folder"

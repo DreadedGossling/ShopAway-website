@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoCloseSharp } from "react-icons/io5";
 
-const Modal = ({ onClose, detail, handleBuy, cartItem }) => {
+const Modal = ({ onClose, detail, handleBuy }) => {
 
   return (
     <div style={styles.overlay}>

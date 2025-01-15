@@ -40,7 +40,7 @@ const Navbar = (prop) => {
               <button>
                 <BsCart4 className='text-3xl' />
               </button>
-              <p className='text-white text-sm -mt-10 ml-9'>{cartItem && cartItem.length}</p>
+              <h3 className='text-white text-sm -mt-10 ml-9'>{cartItem && cartItem.length}</h3>
 
             </li>
           }

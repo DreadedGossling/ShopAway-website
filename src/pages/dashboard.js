@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProductComp from '../components/product';
 import Navbar from '../components/navbar';
 import Cart from '../components/cart';
@@ -25,7 +25,6 @@ const HomePage = () => {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("cartItem"))
-    console.log("object", data)
     setCartItem(data)
   }, [])
 

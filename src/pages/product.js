@@ -4,10 +4,9 @@ import { useParams, Link } from 'react-router-dom'
 const Product = () => {
   const [item, setItem] = useState()
   const params = useParams();
+
   const getCardData = async () => {
-    const res = await fetch(
-      `https://dummyjson.com/products/${params.id}`
-    );
+    const res = await fetch(`https://dummyjson.com/products/${params.id}`);
     const product = await res.json();
     console.log(product);
     setItem(product);

@@ -17,24 +17,27 @@ const Product = (prop) => {
   let isAlready = false;
 
   const handleBuy = (item) => {
-    cartItem.forEach((product) => {
+    (cartItem || []).forEach((product) => {
       if (item.id === product.id) {
         isAlready = true
         setAlert(<Alert variant="filled" severity="warning">Item already exists in Cart</Alert>)
         setTimeout(() => {
           setAlert(null)
         }, 5000)
-
       }
     })
-    if (isAlready) return
+
+    if (isAlready) return;
+
     setAlert(<Alert variant="filled" severity="success">Item added to Cart</Alert>)
     setTimeout(() => {
       setAlert(null)
     }, 5000)
-    setCartItem([...cartItem, item])
-    localStorage.setItem("cartItem", JSON.stringify([...cartItem, item]))
-    setShowModal(false)
+
+    const updatedCart = [...(cartItem || []), item];
+    setCartItem(updatedCart);
+    localStorage.setItem("cartItem", JSON.stringify(updatedCart));
+    setShowModal(false);
   }
 
   return (
