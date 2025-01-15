@@ -25,3 +25,5 @@ yarn-error.log*
 # files
 /src/components/practice
 /src/pages/practice
+/src/firebase.js
+/src/pages/practice/infiniteScroll.js

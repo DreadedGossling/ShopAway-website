@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom';
 import Home from './pages/dashboard'
 import InfiniteScroll from './pages/practice/infiniteScroll'
 import Product from './pages/product'
@@ -10,10 +11,12 @@ import ProgressBar from './pages/practice/progressBar'
 import StarRating from './pages/practice/starRating'
 import Faq from './pages/practice/faq'
 import SearchBar from './pages/practice/searchBar'
-import { Navigate, Outlet } from 'react-router-dom';
 import FolderTest from './pages/practice/folderTest'
 import AlphabetsQuery from './pages/practice/alphabetsQuery'
-
+import FilterProduct from './pages/practice/filterProduct'
+import Dropdown from './pages/practice/dropdown';
+import ListNewItem from './pages/practice/listNewItem';
+import CloudTest from './pages/practice/cloudTest';
 
 const App = () => {
 
@@ -81,6 +84,22 @@ const App = () => {
           <Route
             path="/folder"
             element={<FolderTest />}
+          ></Route>
+          <Route
+            path="/filterProduct"
+            element={<FilterProduct />}
+          ></Route>
+          <Route
+            path="/dropdown"
+            element={<Dropdown />}
+          ></Route>
+          <Route
+            path="/listItem"
+            element={<ListNewItem />}
+          ></Route>
+          <Route
+            path="/cloudTest"
+            element={<CloudTest />}
           ></Route>
 
         </Routes>
